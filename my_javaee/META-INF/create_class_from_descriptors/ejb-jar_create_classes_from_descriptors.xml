@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+         version="3.1">
+<enterprise-beans>
+<!--    entities -->
+    <entity id="TEST2">
+        <ejb-name>Test2</ejb-name>
+        <ejb-class>DATA_ejb_test_data.Test2</ejb-class>
+        <persistence-type>Bean</persistence-type>
+        <prim-key-class>DATA_ejb_test_data.Test2</prim-key-class>
+        <reentrant>false</reentrant>
+    </entity>
+    <entity id="TEST5">
+        <description>no description</description>
+        <display-name>EntityEmployeeBean5</display-name>
+        <ejb-name>EntityEmployeeBean5</ejb-name>
+        <home>DATA_ejb_test_data.entity_bean.EntityEmployeeHome</home>
+        <remote>DATA_ejb_test_data.entity_bean.EntityEmployee</remote>
+        <ejb-class>DATA_ejb_test_data.entity_bean.EntityEmployeeBean5</ejb-class>
+        <persistence-type>Container</persistence-type>
+<!--        <cmp-version>2.x</cmp-version>-->
+<!--        <abstract-schema-name>EmployeeBean</abstract-schema-name>-->
+        <prim-key-class>DATA_ejb_test_data.entity_bean.EntityEmployeePK</prim-key-class>
+        <reentrant>false</reentrant>
+        <cmp-field><field-name>empNo</field-name></cmp-field>
+        <cmp-field><field-name>empName</field-name></cmp-field>
+        <cmp-field><field-name>salary</field-name></cmp-field>
+        <query>
+            <description></description>
+            <query-method>
+                <method-name>findAll</method-name>
+                <method-params/>
+            </query-method>
+            <ejb-ql>Select OBJECT(e) From EntityEmployeeBean5 e</ejb-ql>
+        </query>
+        <query>
+            <description></description>
+            <query-method>
+                <method-name>findByName</method-name>
+                <method-params>
+                    <method-param>java.lang.String</method-param>
+                </method-params>
+            </query-method>
+            <ejb-ql>Select OBJECT(e) From EntityEmployeeBean5 e where e.empName = ?1</ejb-ql>
+        </query>
+    </entity>
+
+<!--   Session   bean          -->
+    <session>
+        <ejb-name>DATA_ejb_test_data.entity_bean.CartBean6</ejb-name>
+        <ejb-class>DATA_ejb_test_data.entity_bean.CartBean6</ejb-class>
+    </session>
+<!--    -->
+    <message-driven>
+        <ejb-name>SimpleMessageBean</ejb-name>
+        <ejb-class>DATA_ejb_test_data.message_driven_bean.SimpleMessageBean7</ejb-class>
+    </message-driven>
+
+</enterprise-beans>
+
+</ejb-jar>
+
+

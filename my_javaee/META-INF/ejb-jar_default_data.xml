@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+         version="3.1">
+<enterprise-beans>
+<!--    entities -->
+    <entity>
+        <ejb-name>Test1</ejb-name>
+        <ejb-class>DATA_ejb_test_data.MessageMDB</ejb-class>
+        <persistence-type>Bean</persistence-type>
+        <prim-key-class>DATA_ejb_test_data.MessageMDB</prim-key-class>
+        <reentrant>false</reentrant>
+    </entity>
+    <entity>
+        <description>no description</description>
+        <display-name>EntityEmployeeBean</display-name>
+        <ejb-name>EntityEmployeeBean</ejb-name>
+        <home>DATA_ejb_test_data.entity_bean.EntityEmployeeHome</home>
+        <remote>DATA_ejb_test_data.entity_bean.EntityEmployee</remote>
+        <ejb-class>DATA_ejb_test_data.entity_bean.EntityEmployeeBean</ejb-class>
+        <persistence-type>Container</persistence-type>
+<!--        <cmp-version>2.x</cmp-version>-->
+<!--        <abstract-schema-name>EmployeeBean</abstract-schema-name>-->
+        <prim-key-class>DATA_ejb_test_data.entity_bean.EntityEmployeePK</prim-key-class>
+        <reentrant>false</reentrant>
+        <cmp-field><field-name>empNo</field-name></cmp-field>
+        <cmp-field><field-name>empName</field-name></cmp-field>
+        <cmp-field><field-name>salary</field-name></cmp-field>
+        <query>
+            <description></description>
+            <query-method>
+                <method-name>findAll</method-name>
+                <method-params/>
+            </query-method>
+            <ejb-ql>Select OBJECT(e) From EntityEmployeeBean e</ejb-ql>
+        </query>
+        <query>
+            <description></description>
+            <query-method>
+                <method-name>findByName</method-name>
+                <method-params>
+                    <method-param>java.lang.String</method-param>
+                </method-params>
+            </query-method>
+            <ejb-ql>Select OBJECT(e) From EntityEmployeeBean e where e.empName = ?1</ejb-ql>
+        </query>
+    </entity>
+<!--    auto-created via EJB view-->
+    <entity>
+        <ejb-name>EntityBMP_TestEJB</ejb-name>
+        <home>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityBMP_TestHome</home>
+        <remote>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityBMP_Test</remote>
+        <ejb-class>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityBMP_TestBean</ejb-class>
+        <persistence-type>Bean</persistence-type>
+        <prim-key-class>java.lang.String</prim-key-class>
+        <reentrant>true</reentrant>
+    </entity>
+    <entity>
+        <ejb-name>EntityCMP_TestEJB</ejb-name>
+        <home>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMP_TestHome</home>
+        <remote>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMP_Test</remote>
+        <ejb-class>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMP_TestBean</ejb-class>
+        <persistence-type>Container</persistence-type>
+        <prim-key-class>java.lang.String</prim-key-class>
+        <reentrant>true</reentrant>
+        <cmp-version>2.x</cmp-version>
+        <abstract-schema-name>EntityCMP_TestEJB</abstract-schema-name>
+    </entity>
+    <entity>
+        <ejb-name>EntityCMPwithLocalInt_TestEJB</ejb-name>
+        <home>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMPwithLocalInt_TestHome</home>
+        <remote>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMPwithLocalInt_Test</remote>
+        <local-home>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.LocalEntityCMPwithLocalInt_TestHome
+        </local-home>
+        <local>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.LocalEntityCMPwithLocalInt_Test</local>
+        <ejb-class>DATA_ejb_test_data.entity_bean.generated_via_EJB_view.EntityCMPwithLocalInt_TestBean</ejb-class>
+        <persistence-type>Container</persistence-type>
+        <prim-key-class>java.lang.String</prim-key-class>
+        <reentrant>true</reentrant>
+        <cmp-version>2.x</cmp-version>
+        <abstract-schema-name>EntityCMPwithLocalInt_TestEJB</abstract-schema-name>
+    </entity>
+
+
+    <!--   Session   bean          -->
+    <session>
+        <ejb-name>DATA_ejb_test_data.entity_bean.CartBean</ejb-name>
+        <ejb-class>DATA_ejb_test_data.entity_bean.CartBean</ejb-class>
+    </session>
+<!--    auto-created via EJB view-->
+    <session>
+        <ejb-name>SessionTestStatelessEJB</ejb-name>
+        <ejb-class>DATA_ejb_test_data.session_bean.SessionTestStatelessBean</ejb-class>
+        <session-type>Stateless</session-type>
+        <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+        <ejb-name>SessionTestStatefulEJB</ejb-name>
+        <ejb-class>DATA_ejb_test_data.session_bean.SessionTestStatefulBean</ejb-class>
+        <session-type>Stateful</session-type>
+        <transaction-type>Container</transaction-type>
+    </session>
+    <session>
+        <ejb-name>SessionTestSingletonEJB</ejb-name>
+        <ejb-class>DATA_ejb_test_data.session_bean.SessionTestSingletonBean</ejb-class>
+        <session-type>Singleton</session-type>
+        <transaction-type>Container</transaction-type>
+    </session>
+
+
+    <!--    -->
+    <message-driven>
+        <ejb-name>SimpleMessageBean</ejb-name>
+        <ejb-class>DATA_ejb_test_data.message_driven_bean.SimpleMessageBean</ejb-class>
+    </message-driven>
+    <message-driven>
+        <ejb-name>MessageTestEJB</ejb-name>
+        <ejb-class>DATA_ejb_test_data.generated.MessageTestBean</ejb-class>
+        <messaging-type>javax.jms.MessageListener</messaging-type>
+        <transaction-type>Container</transaction-type>
+        <message-destination-type>javax.jms.Queue</message-destination-type>
+        <activation-config>
+            <activation-config-property>
+                <activation-config-property-name>acknowledgeMode</activation-config-property-name>
+                <activation-config-property-value>Auto-acknowledge</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+                <activation-config-property-name>subscriptionDurability</activation-config-property-name>
+                <activation-config-property-value>Durable</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+                <activation-config-property-name>destinationType</activation-config-property-name>
+                <activation-config-property-value>javax.jms.Queue</activation-config-property-value>
+            </activation-config-property>
+        </activation-config>
+    </message-driven>
+
+</enterprise-beans>
+
+</ejb-jar>
+
+

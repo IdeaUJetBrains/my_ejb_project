@@ -1,0 +1,26 @@
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+         version="3.1">
+    <enterprise-beans>
+        <message-driven>
+            <ejb-name>DATA_ejb_test_data.MessageMDB</ejb-name>
+            <ejb-class>DATA_ejb_test_data.MessageMDB</ejb-class>
+            <messaging-type>javax.jms.MessageListener</messaging-type>
+            <env-entry>
+                <env-entry-name>insertion</env-entry-name>
+                <env-entry-type>java.lang.String</env-entry-type>
+                <env-entry-value>test</env-entry-value>
+            </env-entry>
+            <env-entry>
+                <env-entry-name>updation</env-entry-name>
+                <env-entry-type>java.lang.String</env-entry-type>
+                <env-entry-value>test</env-entry-value>
+            </env-entry>
+
+        </message-driven>
+
+    </enterprise-beans>
+</ejb-jar>
+

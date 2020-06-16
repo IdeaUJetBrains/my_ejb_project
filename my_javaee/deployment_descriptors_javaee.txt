@@ -1,0 +1,9 @@
+The following XML deployment descriptors will need to be transformed
+when transforming test projects from Java EE 8 to Jakarta EE 9:
+
+application.xml
+application-client.xml
+ejb-jar.xml
+permissions.xml
+web.xml
+web-fragment.xml
